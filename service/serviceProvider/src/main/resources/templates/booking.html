@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Service</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="styles.css"> <!-- Ensure this path is correct -->
+  <style>
+    body {
+        background-color: #f9f9f9;
+        font-family: 'Roboto', sans-serif;
+    }
+    header {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 0;
+    }
+    footer {
+        text-align: center;
+        margin-top: 30px;
+        padding: 10px 0;
+    }
+    .btn {
+        background-color: #4CAF50; /* Green background */
+        color: white;              /* White text */
+        border: none;              /* No border */
+        padding: 10px 20px;        /* Some padding */
+        border-radius: 5px;       /* Rounded corners */
+        cursor: pointer;           /* Pointer cursor on hover */
+        font-size: 16px;           /* Font size */
+    }
+    .btn:hover {
+        background-color: #45a049; /* Darker green on hover */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" th:href="@{/}">Home Services</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" th:href="@{/services}">Services</a></li>
+          <li class="nav-item"><a class="nav-link" th:href="@{/booking}">Book Now</a></li>
+          <li class="nav-item"><a class="nav-link" th:href="@{#contact}">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container mt-5">
+    <h2 class="text-center">Book a Service</h2>
+    <form id="serviceBookingForm">
+      <div class="form-group">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="service">Select Service:</label>
+        <select id="service" name="service" class="form-control" required>
+          <option value="electrician">Electrician</option>
+          <option value="plumber">Plumber</option>
+          <option value="painter">Painter</option>
+          <option value="maid">House Worker</option>
+          <option value="petcare">Pet Caretaker</option>
+          <option value="cooking">Cooking</option>
+          <option value="babysitter">Babysitter</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="providerId">Service Provider ID:</label>
+        <input type="text" id="providerId" name="providerId" class="form-control" placeholder="Provider ID" required>
+      </div>
+
+      <div class="form-group">
+        <label for="date">Preferred Date:</label>
+        <input type="date" id="date" name="date" class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" class="form-control" placeholder="Enter your address" required></textarea>
+      </div>
+
+     <div class="text-center">
+       <a th:href="@{/successbooking}">
+        <button type="button" class="btn">Book Now</button>
+    </a>
+      </div>
+
+    </form>
+  </div>
+
+  <footer id="contact">
+    <p>Contact us: +91-1234567890 | Email: support@homeservices.com</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+      // Handle the booking form submission
+      document.getElementById('serviceBookingForm').addEventListener('submit', async function(e) {
+          e.preventDefault(); // Prevent page reload
+
+          const name = document.getElementById('name').value;
+          const service = document.getElementById('service').value;
+          const providerId = document.getElementById('providerId').value;
+          const date = document.getElementById('date').value;
+          const address = document.getElementById('address').value;
+
+          // Prepare data to send to backend
+          const bookingData = {
+              name: name,
+              service: service,
+              providerId: providerId,
+              date: date,
+              address: address
+          };
+
+          try {
+              const response = await fetch('/api/book', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(bookingData),
+              });
+
+              if (response.ok) {
+                  alert(`Thank you, ${name}! Your ${service} service is booked for ${date}.`);
+                  // Redirect to booking success page
+                  window.location.href = '/bookingsuccessful'; // Update this path as necessary
+              } else {
+                  alert('There was an error booking your service. Please try again.');
+              }
+          } catch (error) {
+              console.error('Error:', error);
+              alert('There was an error processing your request. Please try again later.');
+          }
+      });
+  </script>
+</body>
+</html>

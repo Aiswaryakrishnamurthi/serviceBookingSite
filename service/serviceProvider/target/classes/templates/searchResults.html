@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <form action="/search" method="get">
+        <input type="text" id="searchBox" name="query" placeholder="Search services..." required>
+        <button type="submit">Search</button>
+    </form>
+
+    <ul>
+        <th:block th:each="service : ${searchResults}">
+            <li th:text="${service.name}">Service Name</li>
+        </th:block>
+    </ul>
+
+    <footer>
+        <p>Contact us: +91-1234567890 | Email: support@homeservices.com</p>
+    </footer>
+</body>
+</html>

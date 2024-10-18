@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plumbers and Reviews</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            padding: 20px;
+        }
+
+        .plumber-card {
+            margin-bottom: 20px;
+        }
+
+        .plumber-header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        .rating {
+            color: #ff9800;
+            font-weight: bold;
+        }
+        
+        /* Custom styles for the title and plumber names */
+        h1 {
+            color: #4CAF50; /* Title color */
+        }
+
+        .plumber-header h2 {
+            color: #4CAF50; /* Plumber names color */
+        }
+        
+        /* Custom styles for the button */
+        .service-button {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background-color: #4CAF50; /* Button background color */
+            color: white; /* Button text color */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container position-relative">
+    <h1 class="text-center my-4">Babysitter and Reviews</h1>
+
+    <!-- Button to View Services -->
+    <a href="/service" class="btn service-button">View Services</a>
+
+    <!-- Tab Navigation -->
+    <ul class="nav nav-tabs justify-content-center mb-4">
+        <li class="nav-item">
+            <a class="nav-link active" onclick="showTab('plumber1')">Hannah</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="showTab('plumber2')">Ana</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="showTab('plumber3')">Ajay</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="showTab('plumber4')">Huzeen</a>
+        </li>
+    </ul>
+
+    <!-- Plumber 1 Details -->
+    <div id="plumber1" class="tab-content active plumber-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="plumber-header d-flex align-items-center">
+                    <img src="https://via.placeholder.com/80" alt="John Doe">
+                    <h2 class="ml-3">Hannah</h2>
+                </div>
+                <p>Experienced plumber specializing in residential repairs.</p>
+                <div class="review-section">
+                    <h3>Customer Reviews:</h3>
+                    <div class="review-card">
+                        <div class="d-flex justify-content-between">
+                            <h4>Rachel Green</h4>
+                            <span class="rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="review-content">"Hannah was fantastic with my kids! They loved playing games and reading stories with her. I felt completely at ease knowing they were in good hands."</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="d-flex justify-content-between">
+                            <h4>Jessica Miller</h4>
+                            <span class="rating">⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="review-content">"Hannah is a wonderful babysitter! She kept my little ones entertained with fun activities and made sure they were safe and happy. I highly recommend her!"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Plumber 2 Details -->
+    <div id="plumber2" class="tab-content plumber-card" style="display: none;">
+        <div class="card">
+            <div class="card-body">
+                <div class="plumber-header d-flex align-items-center">
+                    <img src="https://via.placeholder.com/80" alt="Jane Smith">
+                    <h2 class="ml-3">Ana</h2>
+                </div>
+                <p>Expert in both residential and commercial plumbing solutions.</p>
+                <div class="review-section">
+                    <h3>Customer Reviews:</h3>
+                    <div class="review-card">
+                        <div class="d-flex justify-content-between">
+                            <h4>Michael Johnson</h4>
+                            <span class="rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="review-content">"Ana was professional and caring. My daughter adores him! He made bedtime a breeze, and I appreciated his attention to detail."</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="d-flex justify-content-between">
+                            <h4>Ashley Williams</h4>
+                            <span class="rating">⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="review-content">"Olivia did an amazing job looking after my kids while I was at work. They had so much fun, and I came home to a clean house!"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Plumber 3 Details -->
+    <div id="plumber3" class="tab-content plumber-card" style="display: none;">
+        <div class="card">
+            <div class="card-body">
+                <div class="plumber-header d-flex align-items-center">
+                    <img src="https://via.placeholder.com/80" alt="David Johnson">
+                    <h2 class="ml-3">Ajay</h2>
+                </div>
+                <p>Plumbing expert with 15 years of experience.</p>
+                <div class="review-section">
+                    <h3>Customer Reviews:</h3>
+                    <div class="review-card">
+                        <div class="d-flex justify-content-between">
+                            <h4>Daniel Robinson</h4>
+                            <span class="rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="review-content">"We were very pleased with Ajay's babysitting! She engaged our son with creative activities and even helped him with his homework. Will definitely hire her again!"</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="d-flex justify-content-between">
+                            <h4>Karen Davis</h4>
+                            <span class="rating">⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="review-content">"Ajay was a lifesaver! She was punctual, friendly, and my kids instantly warmed up to her. I felt relaxed knowing they were happy and safe."</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Plumber 4 Details -->
+    <div id="plumber4" class="tab-content plumber-card" style="display: none;">
+        <div class="card">
+            <div class="card-body">
+                <div class="plumber-header d-flex align-items-center">
+                    <img src="https://via.placeholder.com/80" alt="Sarah Lee">
+                    <h2 class="ml-3">Huzeen</h2>
+                </div>
+                <p>Specialist in emergency plumbing services.</p>
+                <div class="review-section">
+                    <h3>Customer Reviews:</h3>
+                    <div class="review-card">
+                        <div class="d-flex justify-content-between">
+                            <h4>Sophia Wilson</h4>
+                            <span class="rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="review-content">"Abigail is fantastic! She is creative, patient, and really connects with the kids. I am so grateful for her help!"</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="d-flex justify-content-between">
+                            <h4>David Taylor</h4>
+                            <span class="rating">⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="review-content">"Charlotte was an excellent babysitter! She not only took care of my kids but also taught them some fun arts and crafts. My kids are already asking for her to come back!"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showTab(plumberId) {
+        const tabs = document.querySelectorAll('.tab-content');
+        const tabLinks = document.querySelectorAll('.nav-link');
+
+        tabs.forEach(tab => {
+            tab.style.display = 'none';
+        });
+        tabLinks.forEach(link => {
+            link.classList.remove('active');
+        });
+
+        document.getElementById(plumberId).style.display = 'block';
+        event.currentTarget.classList.add('active');
+    }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

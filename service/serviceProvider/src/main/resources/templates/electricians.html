@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricians and Reviews</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            padding: 20px;
+        }
+
+        .electrician-card {
+            margin-bottom: 20px;
+        }
+
+        .electrician-header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        .rating {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .electrician-header h2 {
+            color: #4CAF50;
+        }
+
+        .service-button {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container position-relative">
+    <h1 class="text-center my-4">Electricians and Reviews</h1>
+
+    <a href="/service" class="btn service-button">View Services</a>
+
+    <ul class="nav nav-tabs justify-content-center mb-4">
+        <li class="nav-item">
+            <a class="nav-link active" onclick="showTab('electrician1')">John Smith</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="showTab('electrician2')">Emily Johnson</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="showTab('electrician3')">Michael Brown</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="showTab('electrician4')">Sarah Wilson</a>
+        </li>
+    </ul>
+
+    <div id="electrician1" class="tab-content active electrician-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="electrician-header d-flex align-items-center">
+                    <img src="https://via.placeholder.com/80" alt="John Smith">
+                    <h2 class="ml-3">John Smith</h2>
+                </div>
+                <p>Experienced electrician for residential installations and repairs.</p>
+                <div class="review-section">
+                    <h3>Customer Reviews:</h3>
+                    <div class="review-card">
+                        <div class="d-flex justify-content-between">
+                            <h4>Amelia Hughes</h4>
+                            <span class="rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="review-content">"Replaced all wiring efficiently and ensured everything was safe."</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="d-flex justify-content-between">
+                            <h4>Lauren Reed</h4>
+                            <span class="rating">⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="review-content">"Quick and professional service. Highly recommend!"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="electrician2" class="tab-content electrician-card" style="display: none;">
+        <div class="card">
+            <div class="card-body">
+                <div class="electrician-header d-flex align-items-center">
+                    <img src="https://via.placeholder.com/80" alt="Emily Johnson">
+                    <h2 class="ml-3">Emily Johnson</h2>
+                </div>
+                <p>Specialist in both residential and commercial electrical systems.</p>
+                <div class="review-section">
+                    <h3>Customer Reviews:</h3>
+                    <div class="review-card">
+                        <div class="d-flex justify-content-between">
+                            <h4>Abigail Brooks</h4>
+                            <span class="rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="review-content">"Installed smart lights in my entire house. Very satisfied!"</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="d-flex justify-content-between">
+                            <h4>Victoria Gray</h4>
+                            <span class="rating">⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="review-content">"Great service, though slightly expensive."</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="electrician3" class="tab-content electrician-card" style="display: none;">
+        <div class="card">
+            <div class="card-body">
+                <div class="electrician-header d-flex align-items-center">
+                    <img src="https://via.placeholder.com/80" alt="Michael Brown">
+                    <h2 class="ml-3">Michael Brown</h2>
+                </div>
+                <p>Electrician with 10 years of experience in commercial projects.</p>
+                <div class="review-section">
+                    <h3>Customer Reviews:</h3>
+                    <div class="review-card">
+                        <div class="d-flex justify-content-between">
+                            <h4>Lily Sanders</h4>
+                            <span class="rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="review-content">"Upgraded my circuit panel—excellent work!"</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="d-flex justify-content-between">
+                            <h4>Megan Rosse</h4>
+                            <span class="rating">⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="review-content">"Reliable service, though took longer than expected."</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="electrician4" class="tab-content electrician-card" style="display: none;">
+        <div class="card">
+            <div class="card-body">
+                <div class="electrician-header d-flex align-items-center">
+                    <img src="https://via.placeholder.com/80" alt="Sarah Wilson">
+                    <h2 class="ml-3">Sarah Wilson</h2>
+                </div>
+                <p>Expert in emergency electrical repairs and installations.</p>
+                <div class="review-section">
+                    <h3>Customer Reviews:</h3>
+                    <div class="review-card">
+                        <div class="d-flex justify-content-between">
+                            <h4>Rachel Collins</h4>
+                            <span class="rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="review-content">"Quick response during a power outage. Lifesaver!"</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="d-flex justify-content-between">
+                            <h4>Lauren Reed</h4>
+                            <span class="rating">⭐⭐⭐⭐</span>
+                        </div>
+                        <div class="review-content">"Efficient and friendly service."</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showTab(electricianId) {
+        const tabs = document.querySelectorAll('.tab-content');
+        const tabLinks = document.querySelectorAll('.nav-link');
+
+        tabs.forEach(tab => {
+            tab.style.display = 'none';
+        });
+        tabLinks.forEach(link => {
+            link.classList.remove('active');
+        });
+
+        document.getElementById(electricianId).style.display = 'block';
+        event.currentTarget.classList.add('active');
+    }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
