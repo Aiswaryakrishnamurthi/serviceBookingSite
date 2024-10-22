@@ -22,7 +22,7 @@ Installation and Setup
 1. Clone the Repository
 bash
 Copy code
-git clone https://github.com/your-repo/servicebooking-app.git  
+git clone [https://github.com/your-repo/servicebooking-app.git  ](https://github.com/Aiswaryakrishnamurthi/serviceBookingSite)
 cd servicebooking-app  
 2. Configure the Database
 Set up a MySQL database and update the application.properties file:
